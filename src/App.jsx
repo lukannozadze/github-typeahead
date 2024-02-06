@@ -1,9 +1,20 @@
+import { Input } from "./components/ui/input";
+import ContextProvider, { useContextProvider } from "./providers/Provider";
+import useMakeRequest from "./hooks/useMakeRequest";
 function App() {
-
+  const { value } = useContextProvider();
   return (
-    <h1 className="text-slate-400">Hello World!</h1>
-      
-  )
+    <div className="flex items-center justify-center">
+      <Input type="text" />
+    </div>
+  );
 }
 
-export default App
+const WithProvider = () => {
+  return (
+    <ContextProvider>
+      <App />
+    </ContextProvider>
+  );
+};
+export default WithProvider;
