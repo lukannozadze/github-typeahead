@@ -1,18 +1,17 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { useContextProvider } from "../../providers/Provider";
-import useMakeRequest from "@/helpers/makeRequest";
-import { useState } from "react";
+import makeRequest from "@/helpers/makeRequest";
+import { useState,useEffect } from "react";
 import useDebounce from "@/hooks/useDebounce";
 
 const Input = React.forwardRef(({ className, type, ...props }, ref) => {
   const [inputValue, setInputValue] = useState("");
   const debouncedValue = useDebounce(inputValue);
-  const result = useMakeRequest(
-    "https://api.github.com/search/users?q=",
-    debouncedValue
-  );
-  const { setValue } = useContextProvider();
+
+   makeRequest("https://api.github.com/search/users?q=",debouncedValue);
+ 
+  
 
   const inputChangeHandler = (e) => {
     setInputValue(e.target.value);

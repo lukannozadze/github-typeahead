@@ -1,11 +1,12 @@
 import React from 'react'
 
-function UserList() {
+const UserList = ({value})=> {
+  console.log(value);
   return (
     <ul>
-      
+     <li></li>
     </ul>
   )
 }
 
-export default UserList
+export default UserList;

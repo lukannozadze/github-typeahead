@@ -3,11 +3,12 @@ const Context = createContext()
 
  const ContextProvider = ({children}) =>{
   const [value,setValue] = useState(null);
-  //const [isLoading,setIsLoading] = useState(false);
+  const [isLoading,setIsLoading] = useState(false);
   const contextValue = {
     value,
     setValue,
-    //isLoading
+    isLoading,
+    setIsLoading
   }
 
  return  <Context.Provider value={contextValue}>
