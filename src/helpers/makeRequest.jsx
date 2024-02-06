@@ -1,7 +1,7 @@
-import {useState,useEffect,useRef} from 'react'
-
-const useMakeRequest = (url,searchParam)=>{
-  const [data,setData] = useState([])
+import {useEffect,useRef} from 'react'
+import { useContextProvider } from '@/providers/Provider'
+const makeRequest = (url,searchParam)=>{
+   const {setValue} = useContextProvider();
   useEffect(()=>{
     if(searchParam!==''){
       const getData = async () =>{
@@ -10,13 +10,12 @@ const useMakeRequest = (url,searchParam)=>{
           throw new Error('Something Went Wrong');
         }
         const fetchedData = await response.json();
-        setData(fetchedData);
+         setValue(fetchedData);
       }
       getData();
     }
     
   },[searchParam])
-  return data;
 }
 
-export default useMakeRequest;
+export default makeRequest;

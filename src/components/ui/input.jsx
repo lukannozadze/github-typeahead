@@ -1,27 +1,26 @@
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 import { useContextProvider } from "../../providers/Provider";
-import useMakeRequest from "@/hooks/useMakeRequest";
-import {useState,useEffect} from 'react'
+import useMakeRequest from "@/helpers/makeRequest";
+import { useState } from "react";
 import useDebounce from "@/hooks/useDebounce";
 
 const Input = React.forwardRef(({ className, type, ...props }, ref) => {
-  const [inputValue,setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const debouncedValue = useDebounce(inputValue);
-  const result = useMakeRequest('https://api.github.com/search/users?q=',debouncedValue);
-  const {setValue} = useContextProvider();
+  const result = useMakeRequest(
+    "https://api.github.com/search/users?q=",
+    debouncedValue
+  );
+  const { setValue } = useContextProvider();
 
-  const inputChangeHandler = (e) =>{
+  const inputChangeHandler = (e) => {
     setInputValue(e.target.value);
-  }
- useEffect(()=>{
-   setValue(result);
-  },[result])
-  
+  };
 
   return (
-    (<input
-     value={inputValue}
+    <input
+      value={inputValue}
       type={type}
       onChange={inputChangeHandler}
       className={cn(
@@ -29,9 +28,10 @@ const Input = React.forwardRef(({ className, type, ...props }, ref) => {
         className
       )}
       ref={ref}
-      {...props} />)
+      {...props}
+    />
   );
-})
-Input.displayName = "Input"
+});
+Input.displayName = "Input";
 
-export { Input }
+export { Input };
