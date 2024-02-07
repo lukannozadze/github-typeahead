@@ -16,10 +16,10 @@ function App() {
   },[isError])
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8">
+    <div className="flex flex-col items-center justify-center gap-8 py-6">
       <Input type="text" />
-      <UserList value={value}/>
       {isLoading && <Icons.spinner className="h-12 w-12 animate-spin"/>}
+      <UserList value={value}/>
       {isError && <Toaster/>}
      
     </div>
