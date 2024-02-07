@@ -6,6 +6,7 @@ import { Icons } from "./components/ui/Loading";
 import { useToast } from "./components/ui/toast/use-toast";
 import { Toaster } from "@/components/ui/toast/toaster"
 import { useEffect } from "react";
+import Pagination from "./components/Pagination";
 
 function App() {
   const {value,isLoading,isError} = useContextProvider();
@@ -21,7 +22,7 @@ function App() {
       {isLoading && <Icons.spinner className="h-12 w-12 animate-spin"/>}
       <UserList value={value}/>
       {isError && <Toaster/>}
-     
+      <Pagination/>
     </div>
   );
 }

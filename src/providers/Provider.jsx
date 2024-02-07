@@ -6,13 +6,19 @@ const Context = createContext()
   const [value,setValue] = useState(null);
   const [isLoading,setIsLoading] = useState(false);
   const [isError,setIsError] = useState(false);
+  const [currentPage,setCurrentPage] = useState(1);
+  const [pageNumber,setPageNumber] = useState(0);
   const contextValue = {
     value,
     setValue,
     isLoading,
     setIsLoading,
     isError,
-    setIsError
+    setIsError,
+    currentPage,
+    setCurrentPage,
+    pageNumber,
+    setPageNumber
   }
 
  return  <Context.Provider value={contextValue}>
