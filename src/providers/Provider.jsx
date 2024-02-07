@@ -1,14 +1,18 @@
+/* eslint-disable react/prop-types */
 import {createContext,useContext,useState} from "react"
 const Context = createContext()
 
  const ContextProvider = ({children}) =>{
   const [value,setValue] = useState(null);
   const [isLoading,setIsLoading] = useState(false);
+  const [isError,setIsError] = useState(false);
   const contextValue = {
     value,
     setValue,
     isLoading,
-    setIsLoading
+    setIsLoading,
+    isError,
+    setIsError
   }
 
  return  <Context.Provider value={contextValue}>
@@ -18,6 +22,7 @@ const Context = createContext()
 
 export default ContextProvider;
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useContextProvider = () =>{
  const context = useContext(Context);
 
