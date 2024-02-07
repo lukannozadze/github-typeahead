@@ -1,16 +1,18 @@
 import {useEffect} from 'react'
 import { useContextProvider } from '@/providers/Provider'
-const makeRequest = (url,searchParam)=>{
+const useMakeRequest = (url,searchParam)=>{
    const {setValue,setIsLoading,setIsError,setCurrentPage} = useContextProvider();
    useEffect(()=>{
      if(searchParam!==''){                   
        const getData = async () =>{
         setIsLoading(true);
+        setIsError(false);
         const response = await fetch(url+searchParam);
         if(!response.ok){
           setIsError(true)
           setIsLoading(false)
           setCurrentPage(1);
+          setValue(null)
           throw new Error('Something Went Wrong');
         }
         const fetchedData = await response.json();
@@ -23,4 +25,4 @@ const makeRequest = (url,searchParam)=>{
   },[searchParam])
 }
 
-export default makeRequest;
+export default useMakeRequest;

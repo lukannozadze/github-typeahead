@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import {createContext,useContext,useState} from "react"
 const Context = createContext()
 
@@ -28,7 +27,6 @@ const Context = createContext()
 
 export default ContextProvider;
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useContextProvider = () =>{
  const context = useContext(Context);
 

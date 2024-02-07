@@ -1,8 +1,8 @@
 
-import UserList from "./components/ui/UserList";
+import UserList from "./components/UserList";
 import { Input } from "./components/ui/input";
 import ContextProvider, {useContextProvider} from "./providers/Provider";
-import { Icons } from "./components/ui/Loading";
+import { Icons } from "./components/ui/icons";
 import { useToast } from "./components/ui/toast/use-toast";
 import { Toaster } from "@/components/ui/toast/toaster"
 import { useEffect } from "react";
