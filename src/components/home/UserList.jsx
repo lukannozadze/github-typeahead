@@ -1,7 +1,9 @@
-const UserList = ({ value }) => {
-  const filteredUsers = value?.items.slice(0, 5); //should be changed
+import { useContextProvider } from "@/providers/Provider";
 
-  console.log(value);
+const UserList = ({ value }) => {
+  const {usersPerPage} = useContextProvider()
+  const filteredUsers = value?.items.slice(0, usersPerPage); 
+
 
   return (
     <ul className="flex flex-col gap-8">
