@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 const UserList = ({value})=> {
 
    const filteredUsers = value?.items.slice(0,5); //should be changed

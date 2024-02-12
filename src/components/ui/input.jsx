@@ -1,17 +1,16 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { useState} from "react";
-import useDebounce from "@/hooks/useDebounce";
-import useMakeRequest from "@/hooks/useMakeRequest";
+import useDebounce from "@/components/home/hooks/useDebounce";
+import githubRequest from "@/service/githubRequest";
 
 const Input = React.forwardRef(({ className, type, ...props }, ref) => {
   const [inputValue, setInputValue] = useState("");
   const debouncedValue = useDebounce(inputValue);
 
-   useMakeRequest("https://api.github.com/search/users?q=",debouncedValue);
+   githubRequest(debouncedValue);
  
   
-
   const inputChangeHandler = (e) => {
     setInputValue(e.target.value);
   };

@@ -1,4 +1,4 @@
-import UserList from "./components/UserList";
+import UserList from "./components/home/UserList";
 import { Input } from "./components/ui/input";
 import ContextProvider, { useContextProvider } from "./providers/Provider";
 import { Icons } from "./components/ui/icons";
