@@ -1,16 +1,8 @@
-import { useContextProvider } from '@/providers/Provider';
 import { useEffect } from 'react';
 const UserList = ({value})=> {
-  const {currentPage,setPageNumber} = useContextProvider();
-   const  usersPerPage = 5;
-   const lastPostIndex = currentPage * usersPerPage;
-   const firstPostIndex = lastPostIndex - usersPerPage;
-   //
-   const filteredUsers = value?.items.slice(firstPostIndex,lastPostIndex);
+
+   const filteredUsers = value?.items.slice(0,5); //should be changed
    
-  useEffect(()=>{
-   setPageNumber(value?.items.length / usersPerPage);
-  },[value])
 
   return (
     <ul className='flex flex-col gap-8'>

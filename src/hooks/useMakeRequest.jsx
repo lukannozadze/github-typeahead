@@ -11,7 +11,6 @@ const useMakeRequest = (url,searchParam)=>{
         if(!response.ok){
           setIsError(true)
           setIsLoading(false)
-          setCurrentPage(1);
           setValue(null)
           throw new Error('Something Went Wrong');
         }
