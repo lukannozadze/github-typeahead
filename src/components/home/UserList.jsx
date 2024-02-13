@@ -1,4 +1,5 @@
 import { useContextProvider } from "@/providers/Provider";
+import { Link } from "react-router-dom";
 
 const UserList = ({ value }) => {
   const {usersPerPage} = useContextProvider()
@@ -10,12 +11,14 @@ const UserList = ({ value }) => {
       {filteredUsers?.map((user) => {
         return (
           <li key={user.id}>
+            <Link to={user.login}>
             <div className="px-4 py-4 max-w-[700px] min-w-[500px] flex items-center justify-between bg-[#1E2A47] rounded-md shadow-xl">
               <h2 className="text-white font-bold text-xl font-mono">
                 {user.login}
               </h2>
               <img className="w-20 h-20 rounded-full" src={user.avatar_url} />
             </div>
+            </Link>
           </li>
         );
       })}
