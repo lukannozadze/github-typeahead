@@ -22,7 +22,7 @@ export default function Info() {
          
     
         </div>
-        <a className='w-40' href={activeUser.html_url}><Button>Visit Github Profile</Button></a>
+        <a className='w-40'  href={activeUser.html_url}><Button>Visit Github Profile</Button></a>
         <a className='w-40' href={activeUser.url}><Button variant='ghost' className='bg-[#60ABFF] text-bold text-white text-base'>Personal Info</Button></a>
     </div>
   )
